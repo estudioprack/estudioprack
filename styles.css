@@ -24,9 +24,6 @@ body {
 
 a.custom-link {
     text-decoration: none;
-    /*text-decoration: underline dashed;*/
-    text-underline-offset: 10px; /* separa el subrayado */
-    text-decoration-thickness: 1px;
     color: var(--black);
     transition: color 0.2s;
 }
