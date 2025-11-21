@@ -1,7 +1,26 @@
 /* styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+:root {
+    --white: #ffffff;
+    --lightgray: #f0f0f0;
+    --mediumgray: #b8b8b8;
+    --darkgray: #808080;
+    --black: #000000;
+}
+
 body {
      font-family: 'Roboto', sans-serif; 
      text-align: center;
 }
+a.custom-link {
+    text-decoration: underline dashed;
+    text-underline-offset: 4px; /* separa el subrayado */
+    color: var(--darkgray);
+    transition: color 0.2s;
+}
+
+a.custom-link:hover {
+    color: var(--mediumgray); /* gris oscuro */
+}
+    
