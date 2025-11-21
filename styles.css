@@ -10,17 +10,26 @@
 }
 
 body {
-     font-family: 'Roboto', sans-serif; 
-     text-align: center;
+    background-color: var(--lightgray);
+    font-family: 'Roboto', sans-serif; 
+    text-align: center;
 }
+
+.lined {
+  display: inline-block;       /* text defines width */
+  border-top: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+  padding: 4px 0;
+}
+
 a.custom-link {
     text-decoration: underline dashed;
     text-underline-offset: 4px; /* separa el subrayado */
-    color: var(--darkgray);
+    color: var(--black);
     transition: color 0.2s;
 }
 
 a.custom-link:hover {
-    color: var(--mediumgray); /* gris oscuro */
+    color: var(--darkgray); /* gris oscuro */
 }
     
