@@ -3,9 +3,6 @@
 
 :root {
     --white: #ffffff;
-    --lightgray: #f0f0f0;
-    --mediumgray: #b8b8b8;
-    --darkgray: #808080;
     --black: #000000;
     --black-rgb: 0,0,0;
 }
@@ -15,50 +12,49 @@ body, html {
     margin: 0;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    font
 }
 
-/* Ajusta el tamaño del carousel a pantalla completa */
-#carouselExampleFade {
-    position: fixed;
-    top: 0; left: 0;
+/* Contenedor de slides */
+#slides {
+    position: relative;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    overflow: hidden; /* recorta abajo */
 }
 
-#carouselExampleFade .carousel-item img {
+/* Slides individuales */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* Fuerza fade también en la primera imagen */
-.carousel-item {
-    position: relative;
+    object-position: top; /* siempre mostrar borde superior */
     opacity: 0;
-    transition: opacity 1.2s ease;
+    transition: opacity 4s linear; /* fade-in / fade-out */
+    transform: none; /* evita cualquier escala residual */
 }
 
-.carousel-item.active {
+.slide.visible {
     opacity: 1;
 }
 
-
+/* Overlay */
 .carousel-overlay {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(var(--black-rgb), 0.1); /* sombra oscura */
-    pointer-events: none; /* que no bloquee clicks */
+    background: rgba(var(--black-rgb), 0.1);
+    pointer-events: none;
 }
 
-/* Ajuste de texto */
+/* Texto */
 .carousel-caption {
-    max-width: 100vw;      /* usar todo el ancho de la ventana */
-    width: 100%;            /* ancho completo */
-    white-space: nowrap;    /* no quebrar el texto */
+    max-width: 100vw;
+    white-space: nowrap;
     position: absolute;
     top: 55%;
     left: 50%;
@@ -67,34 +63,29 @@ body, html {
 
 .carousel-caption h5 {
     color: var(--white);
-    text-shadow: 2px 2px 5px rgba(var(--black-rgb), 0.7); /* sombra adicional */
+    text-shadow: 2px 2px 5px rgba(var(--black-rgb), 0.7);
 }
 
 .lined {
-    display: inline-block;  /* text defines width */
+    display: inline-block;
     border-top: 2px solid var(--white);
     border-bottom: 2px solid var(--white);
     padding: 4px 0;
-    /*text-shadow: 6px 6px 18px var(--mediumgray);*/
     color: var(--white);
-
 }
 
 h5 {
-    /*text-shadow: 6px 6px 30px var(--mediumgray);*/
     color: var(--white);
-
 }
 
 a.custom-link {
-    text-decoration: none;         /* subrayado base */
+    text-decoration: none;
     color: var(--white);
 }
 
 a.custom-link:hover {
     text-decoration: underline;
-    text-decoration-style: dotted;      /* estilo punteado */
-    text-underline-offset: 6px; /* ajusta la separación */
-    text-decoration-color: var(--white); /* color del subrayado */
+    text-decoration-style: dotted;
+    text-underline-offset: 6px;
+    text-decoration-color: var(--white);
 }
-    
