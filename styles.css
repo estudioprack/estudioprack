@@ -33,9 +33,17 @@ body, html {
     object-fit: cover;
 }
 
+/* Fuerza fade también en la primera imagen */
 .carousel-item {
     position: relative;
+    opacity: 0;
+    transition: opacity 1.2s ease;
 }
+
+.carousel-item.active {
+    opacity: 1;
+}
+
 
 .carousel-overlay {
     position: absolute;
