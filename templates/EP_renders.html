@@ -59,6 +59,7 @@
                 <img src="../images/fondo1.png" class="slide2" alt="Render 4">
             </div>
         </div>
+
         <!-- Content -->
         <div class="subtitle">
             <br>
@@ -68,29 +69,32 @@
             <br>
         </div>
         <hr>
+
         <!-- Target -->
-        <div class="links-renderizados">
-            <br>
-            <br>
-            <br>
-            <div><h2>A quiénes nos dirigimos</h2></div>
-            <div><h2>Acá va un texto introductorio acerca de las diferentes</h2></div>
-            <div><h2>experiencias realizadas por el estudio y el target dirigido.</h2></div>
-            <br>
-            <br>
-            <br>
-            <div><h2>Estudios de arquitectura</h2></div>
-            <div><h2>Real Estate</h2></div>
-            <div><h2>Diseño y Publicidad</h2></div>
-            <div><h2>Usuario Final</h2></div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <hr>
+        <div class="subheading"> 
+            <h2>A quiénes nos dirigimos</h2>
+            <h2 class="prueba">Simulado de texto introductorio acerca de las diferentes</h2>
+            <h2>experiencias realizadas por el estudio y el target dirigido.</h2>
         </div>
+        <div class="links-renderizados">
+            <div class="target-column">
+                <h2><a href="#" class="hover-link" data-text="Texto relacionado con Arquitectura: proyectos, experiencias y enfoque del estudio. Texto relacionado con Arquitectura: proyectos, experiencias y enfoque del estudio. Texto relacionado con Arquitectura: proyectos, experiencias y enfoque del estudio. Texto relacionado con Arquitectura: proyectos, experiencias y enfoque del estudio. Texto relacionado con Arquitectura: proyectos, experiencias y enfoque del estudio. Texto relacionado con Arquitectura: proyectos, experiencias y enfoque del estudio.">Estudios de arquitectura</a></h2>
+                <h2><a href="#" class="hover-link" data-text="Texto relacionado con Real Estate: trabajos realizados para inmobiliarias y desarrolladores.">Real Estate</a></h2>
+                <h2><a href="#" class="hover-link" data-text="Texto relacionado con Diseño y Publicidad: colaboraciones con agencias y proyectos creativos.">Diseño y Publicidad</a></h2>
+                <h2><a href="#" class="hover-link" data-text="Texto relacionado con Usuario Final: asesoramiento personalizado y renderizados a medida.">Usuario Final</a></h2>
+                <h2><a href="#" class="hover-link" data-text="Texto relacionado con Real Estate: trabajos realizados para inmobiliarias y desarrolladores.">Real Estate</a></h2>
+                <h2><a href="#" class="hover-link" data-text="Texto relacionado con Diseño y Publicidad: colaboraciones con agencias y proyectos creativos.">Diseño y Publicidad</a></h2>
+                <h2><a href="#" class="hover-link" data-text="Texto relacionado con Usuario Final: asesoramiento personalizado y renderizados a medida.">Usuario Final</a></h2>
+                
+            </div>
+            <div class="hover-column">
+                <div class="hover-box" id="hover-box"></div>
+            </div>
+        </div>
+
+
+        <hr>
+
         <div class="links-renderizados">
             <h5>
                 <span>¿Listo para encargar tu renderizado?</span>
@@ -98,9 +102,7 @@
             </h5>
         </div>
         <hr>
-        <div><span></span></div>
     </div>
-
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -112,7 +114,6 @@
 
         document.querySelectorAll('.slider-column').forEach(column => {
             const slides = column.querySelectorAll('.slide2');
-
             let current = 0;
 
             slides.forEach((slide, index) => {
@@ -130,6 +131,18 @@
                 slides[current].style.opacity = 1;
             }, fadeDuration + displayDuration);
         });
+
+        const hoverBox = document.getElementById('hover-box');
+
+document.querySelectorAll('.hover-link').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        hoverBox.textContent = link.dataset.text;
+        hoverBox.style.display = 'block';
+    });
+    link.addEventListener('mouseleave', () => {
+        hoverBox.style.display = 'none';
+    });
+});
     </script>
 </body>
 </html>
