@@ -177,22 +177,54 @@ a.custom-link-bck:hover {
 /* Slides */
 .col-md-6 {
   position: relative;
-  height: 400px;
+  /*height: 400px;*/
+}
+
+.slider-row {
+  display: flex;
+  gap: 0px; /* espacio entre fotos */
+  margin-bottom: 20px; /* espacio entre hileras */
 }
 
 .slide2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: auto;
-  height: 100%;
-  margin: 15px;
+  width: 375px;
+  height: 375px;
+  object-fit: cover;
+}
+
+.slide3 {
+  flex: 1;        /* ocupa todo el espacio restante */
+  height: 375px;
+  object-fit: cover;
+}
+
+
+
+
+/*
+.slide2 {
+  width: 375px;
+  height: 375px;
+  display: block;
+  margin: 15px 0;
   object-fit: cover;
   object-position: top;
-  opacity: 0;
-  transition: opacity 1s linear;
-  border: 5px solid var(--white);
+  opacity: 1;
+  position: static;
+  border: none;
 }
+
+.slide3 {
+  width: 100%;
+  height: 375px;
+  display: block;
+  margin: 15px 0;
+  object-fit: cover;
+  object-position: top;
+  opacity: 1;
+  position: static;
+  border: none;
+}*/
 
 /* Target */
 .target-background {
@@ -336,4 +368,42 @@ a.custom-link-bck:hover {
 hr {
     margin: 0;
     padding: 0;
+}
+
+/* Contenedores de imágenes */
+.slide2-container {
+width: 375px;          /* cuadrado */
+height: 375px;
+overflow: hidden;      /* mantiene la caja fija */
+flex-shrink: 0;
+}
+
+.slide3-container {
+flex: 1;               /* ocupa el resto del ancho */
+height: 375px;
+overflow: hidden;
+flex-shrink: 0;
+}
+
+/* Filas de la grilla */
+.slider-row {
+display: flex;
+gap: 10px;             /* espacio entre cajas */
+margin-bottom: 10px;   /* espacio entre hileras */
+}
+
+/* Imágenes dentro de los contenedores */
+.slide2-container img,
+.slide3-container img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: top;
+transition: transform 0.5s ease;
+}
+
+/* Zoom al pasar el mouse */
+.slide2-container:hover img,
+.slide3-container:hover img {
+transform: scale(1.05); /* zoom interno sin alterar la caja */
 }

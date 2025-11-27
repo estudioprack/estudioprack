@@ -29,36 +29,36 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row slider-row">
-            <div class="col-md-6 position-relative slider-column">
-                <img src="../images/fondo1.png" class="slide2" alt="Render 1">
-                <img src="../images/fondo2.png" class="slide2" alt="Render 2">
-            </div>
-            <div class="col-md-6 position-relative slider-column">
-                <img src="../images/fondo3.png" class="slide2" alt="Render 3">
-                <img src="../images/fondo4.png" class="slide2" alt="Render 4">
-            </div>
-        </div>
-        <div class="row slider-row">
-            <div class="col-md-6 position-relative slider-column">
-                <img src="../images/fondo2.png" class="slide2" alt="Render 1">
-                <img src="../images/fondo1.png" class="slide2" alt="Render 2">
-            </div>
-            <div class="col-md-6 position-relative slider-column">
-                <img src="../images/fondo4.png" class="slide2" alt="Render 3">
-                <img src="../images/fondo3.png" class="slide2" alt="Render 4">
-            </div>
-        </div>
-        <div class="row slider-row">
-            <div class="col-md-6 position-relative slider-column">
-                <img src="../images/fondo4.png" class="slide2" alt="Render 1">
-                <img src="../images/fondo3.png" class="slide2" alt="Render 2">
-            </div>
-            <div class="col-md-6 position-relative slider-column">
-                <img src="../images/fondo2.png" class="slide2" alt="Render 3">
-                <img src="../images/fondo1.png" class="slide2" alt="Render 4">
-            </div>
-        </div>
+<div class="slider-row">
+    <div class="slide2-container">
+        <img src="../images/fondo1.png" alt="cuadrado">
+    </div>
+    <div class="slide3-container">
+        <img src="../images/fondo2.png" alt="rectángulo">
+    </div>
+</div>
+
+
+<div class="slider-row">
+    <div class="slide3-container">
+        <img src="../images/fondo3.png" alt="rectángulo">
+    </div>
+    <div class="slide2-container">
+        <img src="../images/fondo4.png" alt="cuadrado">
+    </div>
+</div>
+
+
+<div class="slider-row">
+    <div class="slide2-container">
+        <img src="../images/fondo2.png" alt="cuadrado">
+    </div>
+    <div class="slide3-container">
+        <img src="../images/fondo1.png" alt="rectángulo">
+    </div>
+</div>
+
+
 
         <!-- Content -->
         <div class="subtitle">
@@ -105,40 +105,19 @@
 
     <!-- Slider Fade JS -->
     <script>
-        const fadeDuration = 1000; // ms
-        const displayDuration = 3000; // ms
 
-        document.querySelectorAll('.slider-column').forEach(column => {
-            const slides = column.querySelectorAll('.slide2');
-            let current = 0;
 
-            slides.forEach((slide, index) => {
-                slide.style.position = 'absolute';
-                slide.style.top = 0;
-                slide.style.left = 0;
-                slide.style.width = '100%';
-                slide.style.opacity = index === 0 ? 1 : 0;
-                slide.style.transition = `opacity ${fadeDuration/1000}s linear`;
-            });
+    const hoverBox = document.getElementById('hover-box');
 
-            setInterval(() => {
-                slides[current].style.opacity = 0;
-                current = (current + 1) % slides.length;
-                slides[current].style.opacity = 1;
-            }, fadeDuration + displayDuration);
+    document.querySelectorAll('.hover-link').forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            hoverBox.textContent = link.dataset.text;
+            hoverBox.style.display = 'block';
         });
-
-        const hoverBox = document.getElementById('hover-box');
-
-document.querySelectorAll('.hover-link').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        hoverBox.textContent = link.dataset.text;
-        hoverBox.style.display = 'block';
+        link.addEventListener('mouseleave', () => {
+            hoverBox.style.display = 'none';
+        });
     });
-    link.addEventListener('mouseleave', () => {
-        hoverBox.style.display = 'none';
-    });
-});
 
 const links = document.querySelectorAll('.hover-link');
 const box = document.getElementById('hover-box');
