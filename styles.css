@@ -376,6 +376,7 @@ width: 375px;          /* cuadrado */
 height: 375px;
 overflow: hidden;      /* mantiene la caja fija */
 flex-shrink: 0;
+/*border: 2px solid orange;*/
 }
 
 .slide3-container {
@@ -383,6 +384,8 @@ flex: 1;               /* ocupa el resto del ancho */
 height: 375px;
 overflow: hidden;
 flex-shrink: 0;
+
+/*border: 2px solid orange;*/
 }
 
 /* Filas de la grilla */
