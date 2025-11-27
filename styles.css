@@ -1,319 +1,339 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 
 /* Global reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Ensures consistency in dimensions */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures consistency in dimensions */
 }
 
 :root {
-    --white-rgb: 255,255,255;
-    --white: #ffffff; 
-    --black: #000000; 
-    --black-rgb: 0,0,0; 
-} 
+  --white-rgb: 255,255,255;
+  --white: #ffffff;
+  --black: #000000;
+  --black-rgb: 0,0,0;
+}
 
-body, html { 
-    height: 100%; 
-    margin: 0; 
-    font-family: 'Roboto', sans-serif; 
-    text-align: center; 
-} 
+body, html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
 
 /* INDEX */
-/* Contenedor de slides */ 
-#slides { position: relative; 
-    width: 100%; 
-    height: 100vh; /* Usar viewport height real */
-    overflow: hidden; /* recorta abajo */
+/* Contenedor de slides */
+#slides {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Usar viewport height real */
+  overflow: hidden; /* recorta abajo */
+  /*border: 0px solid purple;*/
+}
 
-    /*border: 0px solid purple;*/
-} 
+/* Slides individuales */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top; /* siempre mostrar borde superior */
+  opacity: 0;
+  transition: opacity 4s linear; /* fade-in / fade-out */
+  transform: none; /* evita cualquier escala residual */
+}
 
-/* Slides individuales */ 
-.slide { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    object-position: top; /* siempre mostrar borde superior */ 
-    opacity: 0; 
-    transition: opacity 4s linear; /* fade-in / fade-out */ 
-    transform: none; /* evita cualquier escala residual */ 
-} 
-.slide.visible { 
-    opacity: 1;
-} 
+.slide.visible {
+  opacity: 1;
+}
 
-/* Overlay */     
-.carousel-overlay { 
-    position: absolute; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%; 
-    background: rgba(var(--black-rgb), 0.1); 
-    pointer-events: none;
-    
-    /*border: 0px solid purple;*/
-} 
+/* Overlay */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(var(--black-rgb), 0.1);
+  pointer-events: none;
+  /*border: 0px solid purple;*/
+}
 
 .text-white {
-    color: var(--white);
-    font-weight: 300;
-
-    /*border: 0px solid purple;*/
+  color: var(--white);
+  font-weight: 300;
+  /*border: 0px solid purple;*/
 }
 
 .carousel-caption {
-    position: absolute;
-    top: 62%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 768px;
-    min-height: 200px;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;   /* centra vertical */
-    align-items: center;       /* centra horizontal */
-    text-align: center;
-    gap: 12px;                /* espacio entre h1, h2 y links */
-    text-shadow: 2px 2px 5px rgba(var(--black-rgb), 0.7);
-    
-    /*border: 0px solid white;*/
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 768px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centra vertical */
+  align-items: center;       /* centra horizontal */
+  text-align: center;
+  gap: 12px;                 /* espacio entre h1, h2 y links */
+  text-shadow: 2px 2px 5px rgba(var(--black-rgb), 0.7);
+  /*border: 0px solid white;*/
 }
+
 /* quitar márgenes por defecto y usar gap para separación */
 .carousel-caption h1,
 .carousel-caption h2 {
-    gap: 12px;
-
-    /*border: 0px solid white;*/
+  gap: 12px;
+  /*border: 0px solid white;*/
 }
 
 .carousel-caption h2 {
-    margin: 120px 0 0 0;
-
-    /*border: 0px solid white;*/
+  margin: 120px 0 0 0;
+  /*border: 0px solid white;*/
 }
 
-.lined { 
-    display: inline-block; 
-    border-top: 2px solid var(--white); 
-    border-bottom: 2px solid var(--white); 
-    padding: 4px 0;
+.lined {
+  display: inline-block;
+  border-top: 2px solid var(--white);
+  border-bottom: 2px solid var(--white);
+  padding: 4px 0;
 }
 
 .subtitulo {
-    display: block;
-    text-align: center;
-    font-size: 1.6rem;
-    padding: 0 0 0 0;
-    /*border: 0px solid purple;*/
+  display: block;
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 0 0 0 0;
+  /*border: 0px solid purple;*/
 }
 
 /* Aplica directamente al <a> con clase custom-link */
 a.custom-link {
-    text-decoration: none;
-    
-    /*border: 0px solid purple;*/
+  text-decoration: none;
+  /*border: 0px solid purple;*/
 }
 
 /* Hover sobre el enlace */
 a.custom-link:hover {
-    text-decoration: underline;
-    text-decoration-style: dotted;
-    text-underline-offset: 9px;
-    text-decoration-color: var(--white);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 9px;
+  text-decoration-color: var(--white);
 }
-
-
-
-
-
-
-
-
-
 
 /* EP_renders */
 /* Navbar */
 .text-black {
-    color: var(--black);
-    font-weight: 300;
-
-    /*border: 0px solid purple;*/
+  color: var(--black);
+  font-weight: 300;
+  /*border: 0px solid purple;*/
 }
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    width: 100%;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.navbar h2, .navbar h5 {
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    color: var(--black);
+.navbar h2,
+.navbar h5 {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  color: var(--black);
 }
 
 .navbar h5 {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
-a.custom-link-bck { 
-    text-decoration: none;
-} 
+a.custom-link-bck {
+  text-decoration: none;
+}
 
-a.custom-link-bck:hover { 
-    text-decoration: underline; 
-    text-decoration-style: dotted; 
-    text-underline-offset: 12px; 
-    text-decoration-color: var(--black); 
-} 
+a.custom-link-bck:hover {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 12px;
+  text-decoration-color: var(--black);
+}
 
 /* Subtitle */
-.subtitle h2 { 
-    text-align: center; 
-    padding: 75px 0; 
-    color: var(--black); 
+.subtitle h2 {
+  text-align: center;
+  padding: 75px 0;
+  color: var(--black);
 }
 
 /* Slides */
 .col-md-6 {
-    position: relative;
-    height: 400px;
+  position: relative;
+  height: 400px;
 }
 
 .slide2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: 100%;
-    margin: 15px;
-    object-fit: cover;
-    object-position: top;
-    opacity: 0;
-    transition: opacity 1s linear;
-    border: 5px solid var(--white);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100%;
+  margin: 15px;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  transition: opacity 1s linear;
+  border: 5px solid var(--white);
 }
-
-
-
 
 /* Target */
+.target-background {
+    padding: 100px 15px 0 5px; /* top 30px, right 15px, bottom 0, left 15px */
+    background-image: url("images/fondo5.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 600px;
+}
+
+.target-background::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255,255,255,0.8);
+  z-index: 1;
+}
+
+.target-background > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Subheading */
 .subheading {
-    margin: 150px 15px 0px 15px;
+  margin: 0;
+  position: relative; /* asegura que z-index funcione */
+  z-index: 2;
 }
-.subheading h1, h2 {
-    text-align: left;
 
+.subheading h1,
+.subheading h2 {
+  text-align: left;
+  margin: 0 15px;  /* controla márgenes innecesarios */
+  position: relative;
+  z-index: 2;
 }
-.subheading h2.prueba{
-    margin: 30px 0;
-    padding: 0;
 
-    /*border: 1px solid red;*/
+.subheading h2.prueba {
+  margin: 30px 0;
+  padding: 0;
 }
+
+/* Links renderizados */
 .links-renderizados {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 60px 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 60px 15px;
 }
 
+/* Columns */
 .target-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* fuerza alineación a la izquierda */
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* fuerza alineación a la izquierda */
+  gap: 20px;
 }
 
 .hover-column {
-    position: relative;
-    width: 250px;
+  position: relative;
+  width: 250px;
 }
 
 .hover-box {
-    position: absolute;
-    top: 0;
-    left: 100px;
-    width: 500px;
-    height: auto; 
-    padding: 0 0 0 30px;
-    font-family: 'Roboto';
-    font-weight: 300;
-    font-size: 1.2rem; /* mismo tamaño que h5/hover-link */
-    line-height: 1.4;
-    text-align: left;
-    background-color: var--(white-rgb);
-    color: var(--black);
-    border-radius: 5px;
-    display: none;
-    z-index: 10;
-    overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 500px;
+  height: auto;
+  padding: 0 0 0 30px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 1.2rem; /* mismo tamaño que h5/hover-link */
+  line-height: 1.7;
+  text-align: left;
+  background-color: var(--white-rgb);
+  color: var(--black);
+  border-radius: 5px;
+  display: none;
+  z-index: 10;
+  overflow-y: auto;
 }
 
 /* hover-link como h5 */
 .hover-link {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 300;
-    margin: 0;
-    padding: 0;
-}
-
-.hover-box {
-    line-height: 1.7;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
 }
 
 /* asegura que SOLO ese h2 con clase .prueba dentro de .subheading reciba el estilo */
 .subheading > h1.prueba {
-    margin: 30px 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
+/* Bajada */
 .bajada {
-    display: flex;
-    flex-direction: row;
-    max-width: 755px;
-
-    /*border: 1px solid red;*/
+  display: flex;
+  flex-direction: row;
+  max-width: 760px;
+  padding: 0 15px;
+  /*border: 1px solid red;*/
 }
 
+/* Botones */
 .botones {
-    display: flex;
+  display: flex;
 }
 
 .boton {
-    flex: 1;
-    text-align: center;
-    color: var(--black);
-    font-weight: 300;
-    padding: 20px 0;
-    cursor: pointer;
-    margin: 0;           /* quita el margen del h2 */
-    /*border-right: 1px solid black;  /* quita separación entre botones */
-    box-sizing: border-box;  /* incluye border en el ancho */
-
-    /*border: 1px solid black; /* opcional */
+  flex: 1;
+  text-align: center;
+  color: var(--black);
+  background-color: var(--white);
+  font-weight: 300;
+  padding: 20px 0;
+  cursor: pointer;
+  margin: 0;           /* quita el margen del h2 */
+  /*border-right: 1px solid black;  /* quita separación entre botones */
+  box-sizing: border-box;  /* incluye border en el ancho */
+  /*border: 1px solid black; /* opcional */
 }
 
 .boton:last-child {
-    /*border-left: 1px solid black; /* para que el borde final quede */
+  /*border-left: 1px solid black; /* para que el borde final quede */
 }
 
 .boton:hover {
+  border: 1px dashed var(--black);
+}
 
-    border: 1px dashed var(--black);
+hr {
+    margin: 0;
+    padding: 0;
 }
